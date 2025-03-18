@@ -1,4 +1,4 @@
-import { Card } from './Card';
+import { Card } from './Card.js';
 import { getCreatureDescription } from './index.js';
 
 export default class Creature extends Card {
