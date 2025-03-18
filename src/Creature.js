@@ -8,4 +8,12 @@ export default class Creature extends Card {
     getDescriptions() {
         return [getCreatureDescription(), ...super.getDescriptions()];
     }
+
+    get currentPower() {
+        return this._currentPower;
+    }
+
+    set currentPower(value) {
+        this._currentPower = Math.min(value, this.maxPower);
+    }
 }
