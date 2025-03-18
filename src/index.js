@@ -42,28 +42,41 @@ class Duck extends Card {
     swims() {
         console.log('float: both;');
     }
-
 }
 
 
 // Основа для собаки.
 class Dog extends Card {
-    constructor() {
-        super('Пес-бандит', 3);
+    constructor(name = 'Пес-бандит', power = 3) {
+        super(name, power);
     }
 }
 
+class Trasher extends Dog {
+    constructor() {
+        super('Громила', 5);
+        this.modifyTakenDamage = function (value, fromCard, gameContext, continuation) {
+            this.view.signalAbility(() => continuation(value - 1));
+        };
 
-// Колода Шерифа, нижнего игрока.
+        this.getDescriptions = function () {
+            const baseDescriptions = Card.prototype.getDescriptions.call(this);
+            const abilityDescription = "Способность: Уменьшает урон на 1.";
+            return [...baseDescriptions, abilityDescription];
+        };
+    }
+
+}
+
+
 const seriffStartDeck = [
     new Duck(),
     new Duck(),
-    new Duck()
+    new Duck(),
+    new Duck(),
 ];
-
-// Колода Бандита, верхнего игрока.
 const banditStartDeck = [
-    new Dog()
+    new Trasher(),
 ];
 
 
