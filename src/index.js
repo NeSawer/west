@@ -50,8 +50,23 @@ class Duck extends Creature {
 
 // Основа для собаки.
 class Dog extends Creature {
+    constructor(name = 'Пес-бандит', power = 3) {
+        super(name, power);
+    }
+}
+
+class Trasher extends Dog {
     constructor() {
-        super('Пес-бандит', 3);
+        super('Громила', 5);
+        this.modifyTakenDamage = function (value, fromCard, gameContext, continuation) {
+            this.view.signalAbility(() => continuation(value - 1));
+        };
+
+        this.getDescriptions = function () {
+            const baseDescriptions = Card.prototype.getDescriptions.call(this);
+            const abilityDescription = "Способность: Уменьшает урон на 1.";
+            return [...baseDescriptions, abilityDescription];
+        };
     }
 }
 
