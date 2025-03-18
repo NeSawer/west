@@ -6,7 +6,7 @@ export default class Creature extends Card {
         super(name, maxPower, image);
     }
     getDescriptions() {
-        return [getCreatureDescription(), ...super.getDescriptions()];
+        return [getCreatureDescription(this), ...super.getDescriptions()];
     }
 
     get currentPower() {

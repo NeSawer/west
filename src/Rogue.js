@@ -5,9 +5,7 @@ export class Rogue extends Creature {
     constructor() {
         super("Изгой", 2);
     }
-    modifyDealedDamageToCreature
-    modifyDealedDamageToPlayer
-    modifyTakenDamage
+    
     doBeforeAttack(gameContext, continuation) {
         const {currentPlayer, oppositePlayer, position, updateView} = gameContext;
         const oppositeCard = oppositePlayer.table[position];
