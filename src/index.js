@@ -5,6 +5,9 @@ import SpeedRate from './SpeedRate.js';
 import Creature from './Creature.js';
 import { Gatling } from './Gatling.js';
 import { Rogue } from './Rogue.js';
+import { PseudoDuck } from './PseudoDuck.js';
+import { Dog } from './Dog.js';
+import { Nemo } from './Nemo.js';
 
 // Отвечает является ли карта уткой.
 function isDuck(card) {
@@ -48,13 +51,6 @@ class Duck extends Creature {
 
 }
 
-
-// Основа для собаки.
-class Dog extends Creature {
-    constructor(name = 'Пес-бандит', power = 3) {
-        super(name, power);
-    }
-}
 
 class Trasher extends Dog {
     constructor() {
@@ -119,16 +115,12 @@ class Lad extends Dog {
         return baseDescriptions;
     }
 }
-
 const seriffStartDeck = [
-    new Duck(),
-    new Duck(),
-    new Duck(),
-    new Rogue(),
+    new Nemo(),
 ];
 const banditStartDeck = [
-    new Duck(),
-    new Gatling(),
+    new Rogue(),
+    new Rogue(),
 ];
 // Создание игры.
 const game = new Game(seriffStartDeck, banditStartDeck);
