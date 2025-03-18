@@ -3,6 +3,7 @@ import Game from './Game.js';
 import TaskQueue from './TaskQueue.js';
 import SpeedRate from './SpeedRate.js';
 import Creature from './Creature.js';
+import { Gatling } from './Gatling.js';
 
 // Отвечает является ли карта уткой.
 function isDuck(card) {
@@ -54,19 +55,15 @@ class Dog extends Creature {
     }
 }
 
-
-// Колода Шерифа, нижнего игрока.
 const seriffStartDeck = [
-    new Duck(),
-    new Duck(),
-    new Duck()
+    new Dog(),
+    new Dog(),
+    new Dog(),
 ];
-
-// Колода Бандита, верхнего игрока.
 const banditStartDeck = [
-    new Dog()
+    new Duck(),
+    new Gatling(),
 ];
-
 
 // Создание игры.
 const game = new Game(seriffStartDeck, banditStartDeck);
