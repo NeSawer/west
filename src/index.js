@@ -138,14 +138,17 @@ class Lad extends Dog {
 }
 
 const seriffStartDeck = [
+    new Gatling(),
     new Duck(),
-    new Duck(),
-    new Duck(),
-    new Rogue(),
+    new Brewer(),
+    new Trasher(),
 ];
 const banditStartDeck = [
-    new Duck(),
-    new Gatling(),
+    new Dog(),
+    new Rogue(),
+    new Nemo(),
+    new Lad(),
+    new PseudoDuck(),
 ];
 // Создание игры.
 const game = new Game(seriffStartDeck, banditStartDeck);
