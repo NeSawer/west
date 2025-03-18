@@ -4,6 +4,7 @@ import TaskQueue from './TaskQueue.js';
 import SpeedRate from './SpeedRate.js';
 import Creature from './Creature.js';
 import { Gatling } from './Gatling.js';
+import { Rogue } from './Rogue.js';
 
 // Отвечает является ли карта уткой.
 function isDuck(card) {
@@ -71,15 +72,16 @@ class Trasher extends Dog {
 }
 
 const seriffStartDeck = [
-    new Dog(),
-    new Dog(),
-    new Dog(),
+    new Duck(),
+    new Duck(),
+    new Duck(),
+    new Rogue(),
 ];
 const banditStartDeck = [
-    new Duck(),
-    new Gatling(),
+    new Lad(),
+    new Lad(),
+    new Lad(),
 ];
-
 // Создание игры.
 const game = new Game(seriffStartDeck, banditStartDeck);
 
